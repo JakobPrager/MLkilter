@@ -5,7 +5,9 @@ The ClimbCNN and CNN main are the two files to run it. The Customloss file is no
 I will update the whole repo over time with new things and ideas. I also changed some things so it might not run out of the box.
 
 
-To implement: Make it userfriendy
+To implement: 
+              
+              Make it userfriendy
 
               Upload the mp4 for dataextraction via Github LSF (its a 20 minute video)
               
