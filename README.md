@@ -6,8 +6,11 @@ I will update the whole repo over time with new things and ideas. I also changed
 
 
 To implement: Make it userfriendy
+
               Upload the mp4 for dataextraction via Github LSF (its a 20 minute video)
+              
               Save the best models
+              
 
 
 With this I invite all of you to try with me and make this a really good method of predicting Kilterboard grades.
