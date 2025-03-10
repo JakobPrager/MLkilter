@@ -1,9 +1,11 @@
 import pandas as pd
 
-data = pd.read_csv("results_updated_no_plus.csv")
+data = pd.read_csv("csv_data/results45.csv")
+#remove the plus sign from the grades and save the data
+data['grades'] = data['grades'].str.replace('+', '')
+data.to_csv("csv_data/results45_noplus.csv", index=False)
 
-# Convert all 'S' to '5' in the first column
-data.iloc[:, 1] = data.iloc[:, 1].str.replace('S', '5')
+data = pd.read_csv("csv_data/results45_noplus.csv")
 
 def encode_and_save(data):
     # Create a custom sorting order for the grades
@@ -14,13 +16,14 @@ def encode_and_save(data):
     
     # Encode the values to labels using the custom order
     data_encoded = data.copy()
+    #drop nan values
+    data_encoded = data_encoded.dropna(subset=['grades'])
     data_encoded['grades'] = data_encoded['grades'].map(grade_mapping)
-    
+    #make sure the grades are integers
+    data_encoded['grades'] = data_encoded['grades'].astype(int)
+
     # Save the encoded data to grades.csv
-    data_encoded.to_csv("grades_noplus.csv", index=False)
-    
-    # Save the original keys to a separate CSV file
-    pd.DataFrame(list(grade_mapping.items()), columns=['Original', 'Encoded']).to_csv("grade_map_noplus.csv", index=False)
+    data_encoded.to_csv("csv_data/grades45_noplus.csv", index=False)
 
 encode_and_save(data)
 # Check if the 'grades' column exists in the data
@@ -28,8 +31,7 @@ if 'grades' not in data.columns:
     raise KeyError("The 'grades' column is not present in the data.")
 
 
-data_encoded = pd.read_csv("grades_noplus.csv")
-# Check if there are any NaN values in the 'grades' column of the encoded data
-if data_encoded['grades'].isnull().any():
-    nan_indices = data_encoded[data_encoded['grades'].isnull()].index.tolist()
-    raise ValueError(f"There are NaN values in the 'grades' column of the encoded data at indices: {nan_indices}")
+data_encoded = pd.read_csv("csv_data/grades45_noplus.csv")
+# check list all nan values
+nan_values = data_encoded[data_encoded['grades'].isnull()]
+print(nan_values)

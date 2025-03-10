@@ -10,7 +10,7 @@ def extract_unique_frames(video_path, output_folder):
     cap = cv2.VideoCapture(video_path)
     ret, prev_frame = cap.read()
     frame_count = 0
-
+    print(frame_count)
     while ret:
         ret, frame = cap.read()
         if not ret:
@@ -33,4 +33,4 @@ def frames_are_equal(frame1, frame2):
     return norm_value <= threshold
 
 # Example usage
-extract_unique_frames('recording_holds.mp4', 'output_frames')
+extract_unique_frames('recording_holds.mp4', '40degree_routes')
