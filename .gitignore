@@ -1,7 +1,6 @@
 *.mp4
 cropped40/
-output_frames/
-45_routes/
 cropped45/
-40degree_routes/
+output_frames/
 rectangle40/
+40degree_routes/

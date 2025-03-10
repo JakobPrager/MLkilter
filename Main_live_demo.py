@@ -5,7 +5,7 @@ from MLbackend.Climb_CNN import ClimbingGradeCNN
 import torch
 import torchvision.transforms as transforms
 from PIL import Image
-from capture_rings import apply_rings
+from graph_codes.capture_rings import apply_rings
 
 
 model = ClimbingGradeCNN()  # Initialize your model architecture
